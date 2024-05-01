@@ -1,6 +1,5 @@
-run: api build
+name: api build
 run-name: api-build
-
 on:
   workflow_dispatch:
   push:
