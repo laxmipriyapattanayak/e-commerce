@@ -59,7 +59,7 @@ const Cart = () => {
                     {eCart && eCart.map((c:any, index:number) => (
                         <TableRow key={index}>
                             <TableCell align="right">
-                                <img style={{width: "60px", height: "60px"}} src={'http://localhost:4000/product/image/'+c.image} alt='product'/>
+                                <img style={{width: "60px", height: "60px"}} src={'http://51.20.192.141:4000/product/image/'+c.image} alt='product'/>
                             </TableCell>
                             <TableCell align="right">{c.name}</TableCell>
                             <TableCell align="right">{c.price} DKK</TableCell>

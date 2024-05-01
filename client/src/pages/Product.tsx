@@ -23,7 +23,7 @@ const Product = (props:any) => {
   const {isAdmin, product, userId} = props;
   const {_id, name, image, price, slug } = product;
 
-  const imageUrl = 'http://localhost:4000/product/image/'+ image;
+  const imageUrl = 'http://51.20.192.141:4000/product/image/'+ image;
   const dispatch = useAppDispatch();
   const { favorite, cart } = useAppSelector((state:any) => state.productStore);
   

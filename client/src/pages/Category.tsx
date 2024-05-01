@@ -19,7 +19,7 @@ export const Category = (props:any) => {
    const navigate = useNavigate();
 
     const {_id, name, image, slug } = props.category;
-    const imageUrl = 'http://localhost:4000/category/image/'+image;
+    const imageUrl = 'http://51.20.192.141:4000/category/image/'+image;
 
     const isAdmin = props.isAdmin;
 

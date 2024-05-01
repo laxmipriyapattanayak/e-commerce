@@ -18,7 +18,7 @@ const ProductDetails = () => {
       price: 0,
       image:'image',
     });
-  const imageUrl = 'http://localhost:4000/product/image/'
+  const imageUrl = 'http://51.20.192.141:4000/product/image/'
 
   const fetchProductDetails = async () => {
       try {

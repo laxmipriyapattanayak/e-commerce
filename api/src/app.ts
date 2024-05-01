@@ -20,7 +20,7 @@ const app = express()
 // Express configuration
 app.set('port', process.env.PORT)
 
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+app.use(cors({ credentials: true, origin: 'http://51.20.192.141:3000' }))
 //app.use(apiContentType)
 app.use(cookieParser())
 app.use(express.json())

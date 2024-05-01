@@ -1,7 +1,7 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
-const baseURL = 'http://localhost:4000';
+const baseURL = 'http://51.20.192.141:4000';
 
 export const registerUser = async ( newUser:object ) => {
     const response = await axios.post(`${baseURL}/api/users/register`,newUser);

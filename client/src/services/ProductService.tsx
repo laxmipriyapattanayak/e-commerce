@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ProductType } from "types/product";
-const baseURL = 'http://localhost:4000';
+const baseURL = 'http://51.20.192.141:4000';
 
 export const getAllProductsRequest = async ( ) => {
     const response = await axios.get(`${baseURL}/api/products`);
