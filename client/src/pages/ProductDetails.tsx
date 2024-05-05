@@ -1,50 +1,55 @@
-import React,{useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom'
-import { toast } from 'react-toastify';
-import  {getSingleProductRequest}  from 'services/ProductService';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { getSingleProductRequest } from "services/ProductService";
 
 interface Product {
-    name: string;
-    description: string;
-    price: number;
-    image: string;    
-  }
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
 
 const ProductDetails = () => {
-  const {slug} = useParams();
+  const { slug } = useParams();
   const [product, setProduct] = useState<Product>({
-      name: '',
-      description: '',
-      price: 0,
-      image:'image',
-    });
-  const imageUrl = 'http://localhost:4000/product/image/'
+    name: "",
+    description: "",
+    price: 0,
+    image: "image",
+  });
+  const apiHost = process.env.REACT_APP_API_HOST;
+  const imageUrl = apiHost + "/product/image/";
 
   const fetchProductDetails = async () => {
-      try {
-          const result = await getSingleProductRequest(slug);
-          setProduct(result.product);
-      } catch (error: any) {
-          toast.error(error.response.data.message)
-      }
+    try {
+      const result = await getSingleProductRequest(slug);
+      setProduct(result.product);
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    }
   };
   useEffect(() => {
-      fetchProductDetails()
+    fetchProductDetails();
   }, []);
 
   return (
-    <div >
-       {product && (
-            <div className='product'>
-            <img  className='image' src={`${imageUrl}${product.image}`} alt={product.name}/>
-            <h2> { product.name } </h2>
-            <p> { product.description} </p>
-            <p> price: { product.price } DKK</p>
-            <button>add to cart</button>
-            </div>
-        )} 
+    <div>
+      {product && (
+        <div className="product">
+          <img
+            className="image"
+            src={`${imageUrl}${product.image}`}
+            alt={product.name}
+          />
+          <h2> {product.name} </h2>
+          <p> {product.description} </p>
+          <p> price: {product.price} DKK</p>
+          <button>add to cart</button>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;
